@@ -15,3 +15,6 @@ jobs:
         client-id: ${{ secrets.AZURE_APP_REGISTRATION_OIDC }}
         tenant-id: ${{ secrets.AZURE_ACTIVE_DIRECTORY_TENANT }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - name: Create an Azure Resource Group
+      run:
+        az group create --name azure-iodc --location westcentralus
