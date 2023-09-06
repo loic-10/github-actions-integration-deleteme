@@ -1,0 +1,13 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  azuread:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Microsodt Azure
+      shell: pwsh
+      run: |
+        az login --service-principal --tenant ${{ secrets.AZURE_ACTIVE_DIRECTORY_TENANT }} --username ${{ secrets.AZURE_APP_REGISTRATION }} --password ${{ secrets.AZURE_CLIENT_SECRET }}
+      
