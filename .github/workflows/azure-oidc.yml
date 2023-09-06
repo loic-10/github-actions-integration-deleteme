@@ -1,0 +1,14 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  azuread:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Azure with OIDC
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_APP_REGISTRATION_OIDC }}
+        tenant-id: ${{ secrets.AZURE_ACTIVE_DIRECTORY_TENANT }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
