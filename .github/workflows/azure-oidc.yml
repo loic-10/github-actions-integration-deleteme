@@ -4,6 +4,9 @@ on:
 
 jobs:
   azuread:
+    permissions:
+      id-token: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
     - name: Login to Azure with OIDC
